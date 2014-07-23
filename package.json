@@ -1,0 +1,27 @@
+{
+  "name": "parallelly",
+  "version": "0.0.0",
+  "description": "Compose async functions into one function that runs all parallelly",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "dependencies": {
+    "parallel-loop": "0.0.3"
+  },
+  "keywords": [
+    "parallel",
+    "async",
+    "compose",
+    "composition"
+  ],
+  "repository": {
+    "url": "git@github.com:azer/parallelly.git",
+    "type": "git"
+  },
+  "author": "azer",
+  "license": "BSD",
+  "devDependencies": {
+    "prova": "^1.14.0"
+  }
+}
