@@ -7,6 +7,8 @@ function parallelly (fn, params) {
 
   call.add = add;
   call.then = add;
+  call.and = add;
+  call.run = add;
   call.done = call;
 
   return call;

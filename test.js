@@ -7,12 +7,12 @@ test('composing functions into one', function (assert) {
   assert.plan(7);
 
   parallelly()
-    .then(foo, ['hello', 'world', '!'])
-    .then('bar-alias', bar, [1, 2, 3])
-    .then(qux, [4, 5, 6])
-    .then(second)
-    .then(third)
-    .then(first)
+    .run(foo, ['hello', 'world', '!'])
+    .and('bar-alias', bar, [1, 2, 3])
+    .and(qux, [4, 5, 6])
+    .and(second)
+    .and(third)
+    .and(first)
     .done(function (errors, results) {
       assert.ok(calledThird);
       assert.notOk(errors);
@@ -46,10 +46,10 @@ test('composing functions into one', function (assert) {
 
 test('returns errors', function (assert) {
   parallelly()
-    .then(foo, ['hello', 'world', '!'])
-    .then(fail)
-    .then('bar-alias', bar, [1, 2, 3])
-    .then(qux, [4, 5, 6])
+    .run(foo, ['hello', 'world', '!'])
+    .and(fail)
+    .and('bar-alias', bar, [1, 2, 3])
+    .and(qux, [4, 5, 6])
     .done(function (errors, results) {
       assert.ok(errors);
       assert.equal(errors[0].name, 'fail');
