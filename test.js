@@ -61,6 +61,25 @@ test('returns errors', function (assert) {
     });
 });
 
+test('allows customizing context', function (t) {
+  t.plan(3);
+
+  var ctx = {};
+
+  parallelly({ context: ctx })
+    .then(function (next) {
+      t.equal(this, ctx);
+      next();
+    })
+    .then(function (next) {
+      t.equal(this, ctx);
+      next();
+    })
+    .done(function () {
+      t.notEqual(this, ctx);
+    });
+});
+
 function foo (pa, ra, ms, callback) {
   callback(undefined, pa + '\n' + ra + '\n' + ms);
 }

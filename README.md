@@ -21,7 +21,7 @@ parallelly()
   .run(foo, ['a', 'b', 'c'])
   .and(bar, [1, 2, 3])
   .and('qux alias', qux, [4, 5, 6])
-  .and(function (errors, results) {
+  .done(function (errors, results) {
     if (errors) {
       errors[0].name
       // => "bar"

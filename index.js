@@ -2,7 +2,9 @@ var loop = require("parallel-loop");
 
 module.exports = parallelly;
 
-function parallelly (fn, params) {
+function parallelly (options) {
+  options || (options = {});
+
   var fns = [];
 
   call.add = add;
@@ -34,7 +36,7 @@ function parallelly (fn, params) {
         done();
       });
 
-      fns[i].fn.apply(undefined, params);
+      fns[i].fn.apply(options.context, params);
     }
   }
 
